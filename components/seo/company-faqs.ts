@@ -13,7 +13,7 @@ export const COMPANY_FAQS = [
   {
     question: "How do Codemap, Layers, and Persist differ?",
     answer:
-      "Codemap indexes a local codebase for agents (SQL and recipes instead of scanning the tree). Layers treats overlays as awaitable calls. Persist adds hydration-aware persistence to reactive stores. Different problems; no forced stack.",
+      "Codemap indexes a local codebase for agents (SQL and recipes instead of scanning the tree). Layers is a headless overlay manager — open any layer from anywhere. Persist adds hydration-aware persistence to reactive stores. Different problems; no forced stack.",
   },
   {
     question: "Are the libraries open source?",

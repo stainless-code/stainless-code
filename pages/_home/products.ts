@@ -3,7 +3,7 @@ export const PRODUCTS = [
   {
     name: "Codemap",
     pitch:
-      "Local codebase intelligence for AI agents — a SQLite index of symbols, imports, and calls. SQL and recipes instead of scanning the tree.",
+      "Local SQLite index for agents — SQL and recipes instead of scanning the tree.",
     href: "https://stainless-code.com/codemap",
     github: "https://github.com/stainless-code/codemap",
     npm: "@stainless-code/codemap",
@@ -11,7 +11,8 @@ export const PRODUCTS = [
   },
   {
     name: "Layers",
-    pitch: "Modals are just async functions you forgot to await.",
+    pitch:
+      "Headless modal/dialog/drawer/popover/toast manager — open any layer from anywhere.",
     href: "https://stainless-code.com/layers",
     github: "https://github.com/stainless-code/layers",
     npm: "@stainless-code/layers",
@@ -19,7 +20,7 @@ export const PRODUCTS = [
   },
   {
     name: "Persist",
-    pitch: "Any store, any storage, one middleware — no flash.",
+    pitch: "Any store, any storage — one middleware, no hydrate flash.",
     href: "https://stainless-code.com/persist",
     github: "https://github.com/stainless-code/persist",
     npm: "@stainless-code/persist",

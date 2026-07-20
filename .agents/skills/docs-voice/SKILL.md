@@ -46,10 +46,10 @@ Senior-dev to senior-dev: concrete, dry, honest about scope. Pragmatic marketing
   "Open-source TypeScript and JavaScript libraries with sharp contracts — tooling for modern apps and AI-agent workflows."
 - **Why principles (landing + About):** Sharp contracts. Independent libraries. Built for agents too.
 - **About description:** "Who Stainless Code is, how we ship open-source libraries, and where product docs live — without a platform pitch."
-- **Product capacity one-liners** (cards / product-index tables only):
-  - **Codemap:** "Local codebase intelligence for AI agents — a SQLite index of symbols, imports, and calls. SQL and recipes instead of scanning the tree."
-  - **Layers:** "Modals are just async functions you forgot to `await`."
-  - **Persist:** "Any store, any storage, one middleware — no flash."
+- **Product capacity one-liners** (cards / product-index tables only) — prefer each product's `llms.txt` blurb (first sentence), thinned only if the hub card needs it:
+  - **Codemap:** "Local SQLite index for agents — SQL and recipes instead of scanning the tree." ([llms.txt](https://stainless-code.com/codemap/llms.txt) full blurb is longer)
+  - **Layers:** "Headless modal/dialog/drawer/popover/toast manager — open any layer from anywhere." ([llms.txt](https://stainless-code.com/layers/llms.txt))
+  - **Persist:** "Any store, any storage — one middleware, no hydrate flash."
 
 ## Verify
 
