@@ -1,0 +1,28 @@
+---
+import Accordion from "blume/components/content/Accordion.astro";
+import AccordionItem from "blume/components/content/AccordionItem.astro";
+import { COMPANY_FAQS } from "./company-faqs.ts";
+
+const faqJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: COMPANY_FAQS.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+}).replaceAll("<", "\\u003c");
+---
+
+<Accordion>
+  {
+    COMPANY_FAQS.map((faq) => (
+      <AccordionItem title={faq.question}>{faq.answer}</AccordionItem>
+    ))
+  }
+</Accordion>
+
+<script is:inline set:html={faqJsonLd} type="application/ld+json" />

@@ -1,0 +1,72 @@
+name: Deploy docs
+
+# Domain-root FTP for https://stainless-code.com/.
+# `docs` label on a merged PR to main = deploy without a release.
+# Requires hub-specific FTP secrets — do NOT reuse product (/codemap, /layers, /persist) roots.
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-docs-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build & Deploy docs (FTP)
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'pull_request' &&
+       github.event.pull_request.merged == true &&
+       contains(github.event.pull_request.labels.*.name, 'docs'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7
+        with:
+          persist-credentials: false
+          # Closed PR checkout defaults to a dead merge ref — pin the merge commit on main.
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.merge_commit_sha || github.sha }}
+          # Sitemap lastmod uses `git log` per file.
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: ./.github/actions/setup
+
+      - name: Validate docs links
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bun run validate -- --strict
+
+      - name: Typecheck docs site
+        run: bun run check -- --isolated
+
+      - name: Build docs site
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bun run build
+
+      - name: Audit docs site
+        run: bun run audit
+
+      # FTP account root must already be domain root — server-dir ./ is correct.
+      - name: Upload to domain root via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          security: strict
+          local-dir: ./dist/
+          server-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**

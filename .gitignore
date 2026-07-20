@@ -1,0 +1,12 @@
+node_modules/
+.DS_Store
+dist/
+*.tgz
+*.log
+.env
+.env.*
+!.env.example
+
+# Blume generated runtime + verify output
+.blume/
+.blume-verify/

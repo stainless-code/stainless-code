@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "sortImports": {},
+  "sortPackageJson": {
+    "sortScripts": true
+  },
+  "ignorePatterns": [
+    "node_modules",
+    "dist",
+    "coverage",
+    "bun.lock",
+    "content/**",
+    ".blume/**",
+    ".blume-verify/**"
+  ],
+  "printWidth": 80
+}

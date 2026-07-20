@@ -1,0 +1,43 @@
+:root {
+  /* Cool zinc surfaces + steel company accent */
+  --blume-background: #fafafa;
+  --blume-foreground: #18181b;
+  --blume-muted: #f4f4f5;
+  --blume-muted-foreground: #52525b;
+  --blume-border: #e4e4e7;
+  --blume-accent: #3f3f46;
+  --blume-accent-foreground: #ffffff;
+  --blume-success: #15803d;
+}
+
+:root[data-theme="dark"] {
+  --blume-background: #18181b;
+  --blume-foreground: #fafafa;
+  --blume-muted: #27272a;
+  --blume-muted-foreground: #a1a1aa;
+  --blume-border: #3f3f46;
+  --blume-accent: #a1a1aa;
+  --blume-accent-foreground: #18181b;
+  --blume-success: #4ade80;
+}
+
+/* Logo hover: bar fills settle into accent. */
+.logo-bar {
+  fill: currentColor;
+  transition:
+    fill 200ms ease,
+    opacity 200ms ease;
+}
+
+a:has(> span > .logo-svg):hover .logo-bar {
+  fill: var(--blume-accent);
+}
+
+/* Invert via data-theme (not prefers-color-scheme). */
+:root[data-theme="dark"] .logo-tone-dark {
+  filter: invert(1);
+}
+
+:root:not([data-theme="dark"]) .logo-tone-light {
+  filter: invert(1);
+}

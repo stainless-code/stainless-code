@@ -1,0 +1,52 @@
+---
+import Card from "blume/components/content/Card.astro";
+import CardGroup from "blume/components/content/CardGroup.astro";
+import { contentHref } from "blume/components/content/base-href.ts";
+import { PRODUCTS } from "./products.ts";
+---
+
+<section aria-labelledby="libraries-heading" id="libraries">
+  <div class="mx-auto max-w-2xl text-center">
+    <h2
+      class="font-medium text-3xl tracking-tight sm:text-4xl"
+      id="libraries-heading"
+    >
+      Browse the libraries.
+    </h2>
+    <p class="mx-auto mt-4 max-w-lg text-balance text-muted-foreground">
+      Open-source packages under Stainless Code. Open a card for docs, source,
+      and npm — or see the full{" "}
+      <a
+        class="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+        href={contentHref("/products")}
+      >
+        product index
+      </a>
+      .
+    </p>
+  </div>
+
+  <div class="product-cards mt-10">
+    <CardGroup cols={3}>
+      {
+        PRODUCTS.map((product) => (
+          <Card
+            arrow
+            href={product.href}
+            icon={product.icon}
+            title={product.name}
+          >
+            {product.pitch}
+          </Card>
+        ))
+      }
+    </CardGroup>
+  </div>
+</section>
+
+<style>
+  .product-cards :global([data-blume-card] img) {
+    height: 28px;
+    width: 28px;
+  }
+</style>
