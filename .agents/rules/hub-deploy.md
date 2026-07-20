@@ -18,6 +18,7 @@ Without `docs`: merge does **not** deploy. Use Actions → **Deploy docs** → `
 ## FTP constraints (do not violate)
 
 - Account root = `https://stainless-code.com/` (secrets: `FTP_HOST`, `FTP_USERNAME`, `FTP_PASSWORD`).
+- **`FTP_HOST` must be `glc51.hostico.ro`** — FTPS `security: strict` validates the cert; `ftp.stainless-code.com` fails (`ERR_TLS_CERT_ALTNAME_INVALID`).
 - Workflow **exclude** keeps `codemap/`, `layers/`, `persist/`, `.well-known/` (not uploaded, not deleted).
 - **Never** set `dangerous-clean-slate` — it ignores exclude and wipes product docs.
 
