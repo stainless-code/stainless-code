@@ -1,8 +1,7 @@
 name: Deploy docs
 
-# Domain-root FTP for https://stainless-code.com/.
-# `docs` label on a merged PR to main = deploy without a release.
-# Requires hub-specific FTP secrets — do NOT reuse product (/codemap, /layers, /persist) roots.
+# Domain-root FTPS upload of dist/. Never set dangerous-clean-slate — it ignores exclude
+# and would wipe /codemap /layers /persist. Trigger: workflow_dispatch or merged PR + `docs` label.
 on:
   workflow_dispatch:
   pull_request:
@@ -54,7 +53,7 @@ jobs:
       - name: Audit docs site
         run: bun run audit
 
-      # FTP account root must already be domain root — server-dir ./ is correct.
+      # server-dir ./ = FTP account root (domain root).
       - name: Upload to domain root via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
@@ -70,3 +69,11 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
+            codemap
+            codemap/**
+            layers
+            layers/**
+            persist
+            persist/**
+            .well-known
+            .well-known/**

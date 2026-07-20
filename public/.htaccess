@@ -1,7 +1,7 @@
 # Stainless Code company hub — Apache config for the domain root.
 # Deployed by the Deploy docs workflow (FTP account scoped to domain root).
 # Do NOT list .htaccess in the workflow exclude — it rides along in dist/.
-# Product deploys (/codemap, /layers, /persist) use separate FTP roots.
+# Deploy exclude keeps /codemap /layers /persist (shared domain root).
 
 Options -Indexes
 DirectoryIndex index.html
