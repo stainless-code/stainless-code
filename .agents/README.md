@@ -8,6 +8,7 @@ Source of truth for AI agent configuration. Cursor consumes via symlinks in `.cu
 | -------------------------- | -------------------------------------------------------------------- |
 | Repo-root stub             | [`AGENTS.md`](../AGENTS.md)                                          |
 | Where files live, symlinks | [rules/agents-first-convention.md](rules/agents-first-convention.md) |
+| PRs that publish the hub   | [rules/hub-deploy.md](rules/hub-deploy.md) (`docs` label)            |
 | Hub voice                  | [`docs-voice`](skills/docs-voice/SKILL.md)                           |
 | Past corrections           | [`lessons.md`](lessons.md)                                           |
 | What exists on disk        | `ls .agents/rules` · `ls .agents/skills`                             |

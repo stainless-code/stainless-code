@@ -5,6 +5,7 @@ Canonical read order: [`.agents/README.md`](.agents/README.md) (START HERE).
 | Topic            | Link                                                                                   |
 | ---------------- | -------------------------------------------------------------------------------------- |
 | File conventions | [`.agents/rules/agents-first-convention.md`](.agents/rules/agents-first-convention.md) |
+| PRs / deploy hub | [`.agents/rules/hub-deploy.md`](.agents/rules/hub-deploy.md) — label `docs` to publish |
 | Pre-commit hooks | [`.agents/rules/no-bypass-hooks.md`](.agents/rules/no-bypass-hooks.md)                 |
 | Verify each step | [`.agents/rules/verify-after-each-step.md`](.agents/rules/verify-after-each-step.md)   |
 | Authoring        | [`.agents/rules/authoring-discipline.md`](.agents/rules/authoring-discipline.md)       |

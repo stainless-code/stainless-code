@@ -17,5 +17,5 @@ alwaysApply: true
 <!-- Append durable corrections below, one bullet per line. Keep this file
      short — lift into rules/skills when a lesson becomes policy. -->
 
-- Domain-root FTP deploy must exclude `codemap/`, `layers/`, `persist/`, `.well-known/` and must never use `dangerous-clean-slate` (it ignores exclude).
+- Hub PR auto-deploy + FTP excludes: see [`hub-deploy`](rules/hub-deploy.md) (label `docs` on merge; never `dangerous-clean-slate`).
 - Hub `oxfmt` ignores `content/**` so Blume `:::` fences are not collapsed — format/check on content MDX is a no-op by design.
