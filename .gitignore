@@ -10,3 +10,6 @@ dist/
 # Blume generated runtime + verify output
 .blume/
 .blume-verify/
+
+# lint-staged temp (if ever used for scoped typecheck)
+tsconfig.lint-staged.json

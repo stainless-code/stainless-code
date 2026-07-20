@@ -16,6 +16,8 @@
     "dev": "blume dev",
     "format": "oxfmt --no-error-on-unmatched-pattern",
     "format:check": "oxfmt --check --no-error-on-unmatched-pattern",
+    "lint-staged": "lint-staged",
+    "prepare": "husky || true",
     "preview": "blume preview",
     "validate": "blume validate"
   },
@@ -23,6 +25,8 @@
     "blume": "1.1.2"
   },
   "devDependencies": {
+    "husky": "9.1.7",
+    "lint-staged": "17.1.0",
     "oxfmt": "0.59.0"
   },
   "engines": {
