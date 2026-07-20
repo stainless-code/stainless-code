@@ -10,7 +10,7 @@ Companion to always-on [`.agents/rules/authoring-discipline.md`](../../rules/aut
 
 **Cut:** file inventories, pasted signatures, restating the next line, generic library practice, duplicate facts across README/About/Experience, tallied counts of re-derivable items ("3 products", "N pages") — the number goes stale the moment it changes; the items carry the story, the number doesn't.
 
-**Comments/JSDoc:** 0 lines when self-explanatory; 1 line default; 2–3 only for irreducible gotchas; `>3 lines` → lift to `docs/` with one-line pointer. Public `.d.ts` / hover docs should read well — `@param` / `@returns` / `@default` / `@example` (with real, resolving imports) carry the meaning when usage isn't obvious; types stay, narrating them does not.
+**Comments/JSDoc:** 0 lines when self-explanatory; 1 line default; 2–3 only for irreducible gotchas; `>3 lines` → lift to a skill/README with one-line pointer. Public `.d.ts` / hover docs should read well — `@param` / `@returns` / `@default` / `@example` (with real, resolving imports) carry the meaning when usage isn't obvious; types stay, narrating them does not.
 
 **Exception — JSDoc as types (`.mjs`, `@ts-check`):** Untyped JS has no `.ts` surface — **`@typedef`, `@param`, `@returns`, and inline `@type` are the type system; keep them.** Apply the decision test only to **prose** in those blocks (keep non-obvious _why_; cut restatements of param names or return shapes).
 

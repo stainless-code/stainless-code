@@ -12,17 +12,11 @@ Product docs ship as sibling sites, including:
 | [Layers](https://github.com/stainless-code/layers)   | [stainless-code.com/layers](https://stainless-code.com/layers)   |
 | [Persist](https://github.com/stainless-code/persist) | [stainless-code.com/persist](https://stainless-code.com/persist) |
 
-## Status
-
-Company hub pages: home, About, Products, Team, Experience, Contact. Deploy plan:
-
-→ **[docs/plans/company-docs-site.md](./docs/plans/company-docs-site.md)**
-
 ## This repo
 
 Company hub for `https://stainless-code.com/` — pitch + product index. It does **not** replace product documentation trees.
 
-### Local docs
+### Local
 
 ```bash
 bun install
