@@ -1,0 +1,26 @@
+---
+import { COMPANY, MAINTAINER } from "../company";
+
+const personJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: MAINTAINER.name,
+  jobTitle: MAINTAINER.role,
+  url: `${COMPANY.siteUrl}/team`,
+  image: `${COMPANY.siteUrl}${MAINTAINER.image}`,
+  email: MAINTAINER.email,
+  worksFor: {
+    "@type": "Organization",
+    name: COMPANY.name,
+    url: COMPANY.siteUrl,
+  },
+  sameAs: [
+    MAINTAINER.github,
+    MAINTAINER.linkedin,
+    MAINTAINER.x,
+    MAINTAINER.bluesky,
+  ],
+}).replaceAll("<", "\\u003c");
+---
+
+<script is:inline set:html={personJsonLd} type="application/ld+json" />

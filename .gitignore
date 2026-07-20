@@ -1,0 +1,15 @@
+node_modules/
+.DS_Store
+dist/
+*.tgz
+*.log
+.env
+.env.*
+!.env.example
+
+# Blume generated runtime + verify output
+.blume/
+.blume-verify/
+
+# lint-staged temp (if ever used for scoped typecheck)
+tsconfig.lint-staged.json

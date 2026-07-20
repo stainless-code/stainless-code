@@ -1,0 +1,136 @@
+---
+/** Scoped CSS below — Blume `.prose` still sizes h2/p inside `.not-prose`. */
+import { EXPERIENCE_ENTRIES, logoToneClass } from "../experience";
+---
+
+<div class="experience-entries not-prose my-6 space-y-4">
+  {
+    EXPERIENCE_ENTRIES.map((entry) => (
+      <article
+        class="rounded-blume border border-border p-4"
+        id={entry.id}
+      >
+        <header class="flex items-center gap-3">
+          <span
+            class="flex size-9 shrink-0 items-center justify-center rounded-blume border border-border bg-background p-1"
+          >
+            <img
+              alt=""
+              aria-hidden="true"
+              class:list={[
+                "max-h-full max-w-full object-contain",
+                logoToneClass(entry.logoTone),
+              ]}
+              height="28"
+              src={entry.logo}
+              width="28"
+            />
+          </span>
+          <div class="min-w-0 flex-1">
+            <h2>
+              <a
+                class="text-inherit no-underline hover:underline"
+                href={entry.href}
+                rel="noreferrer"
+                target="_blank"
+              >
+                {entry.name}
+              </a>
+            </h2>
+            <p>{entry.meta}</p>
+          </div>
+        </header>
+
+        {entry.body.map((paragraph) => <p>{paragraph}</p>)}
+
+        {
+          entry.roles && (
+            <ol class="list-decimal space-y-1 ps-5">
+              {entry.roles.map((role) => (
+                <li>
+                  <span class="font-medium text-foreground">{role.title}</span>
+                  {" — "}
+                  {role.dates}
+                </li>
+              ))}
+            </ol>
+          )
+        }
+
+        {
+          entry.related && entry.related.length > 0 && (
+            <ul class="flex flex-wrap gap-2">
+              {entry.related.map((link) => (
+                <li>
+                  <a
+                    class="inline-flex items-center gap-2 rounded-blume border border-border px-2.5 py-1 text-foreground transition-colors hover:border-foreground"
+                    href={link.href}
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    {link.logo && (
+                      <span class="flex size-4 shrink-0 items-center justify-center">
+                        <img
+                          alt=""
+                          aria-hidden="true"
+                          class:list={[
+                            "max-h-full max-w-full object-contain",
+                            logoToneClass(link.logoTone),
+                          ]}
+                          height="16"
+                          src={link.logo}
+                          width="16"
+                        />
+                      </span>
+                    )}
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )
+        }
+      </article>
+    ))
+  }
+</div>
+
+<style>
+  .experience-entries :is(h2, p, ul, ol) {
+    margin: 0;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+  }
+
+  .experience-entries article > header h2 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  .experience-entries article > header p {
+    margin-top: 0.125rem;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: var(--blume-muted-foreground);
+  }
+
+  .experience-entries article > p,
+  .experience-entries article > ol {
+    margin-top: 1rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--blume-muted-foreground);
+  }
+
+  .experience-entries article > ul {
+    margin-top: 1rem;
+  }
+
+  .experience-entries article > ul a {
+    font-size: 0.75rem;
+    text-decoration: none;
+  }
+</style>
