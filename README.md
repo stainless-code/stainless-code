@@ -28,4 +28,4 @@ bun run format          # oxfmt write
 bun run format:check
 ```
 
-Git hooks: Husky + lint-staged (agent commits only — see `.husky/pre-commit`).
+Git hooks: Husky + lint-staged on every commit (see `.husky/pre-commit`).
