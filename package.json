@@ -10,7 +10,7 @@
   },
   "type": "module",
   "scripts": {
-    "audit": "blume audit --fail-on error --skip canonical_bad_target,non_canonical_in_sitemap,indexable_page_not_in_sitemap,BLUME_AUDIT_LINK_TO_BROKEN,BLUME_AUDIT_INTERNAL_LINK_ABSOLUTE",
+    "audit": "blume audit --fail-on error --skip BLUME_AUDIT_LINK_TO_BROKEN,BLUME_AUDIT_INTERNAL_LINK_ABSOLUTE",
     "build": "blume build",
     "check": "blume check",
     "dev": "blume dev",
@@ -22,7 +22,7 @@
     "validate": "blume validate"
   },
   "dependencies": {
-    "blume": "1.1.3"
+    "blume": "1.2.0"
   },
   "devDependencies": {
     "husky": "9.1.7",
