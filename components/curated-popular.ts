@@ -3,8 +3,8 @@ import { PRODUCTS } from "../pages/_home/products";
 /** Cmd+K icon names (not image paths). */
 const PRODUCT_SEARCH_ICON = {
   Codemap: "database",
-  Layers: "layers",
   Persist: "hard-drive",
+  Layers: "layers",
 } as const satisfies Record<(typeof PRODUCTS)[number]["name"], string>;
 
 /** Cmd+K empty-state + 404 — hub pages, then product docs URLs. */

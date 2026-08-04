@@ -47,7 +47,7 @@ export default defineConfig({
     sidebar: { display: "flat" },
   },
 
-  // Zinc shell + steel accent (not Codemap blue / Layers teal / Persist amber).
+  // Zinc shell + steel accent (not Codemap blue / Persist amber / Layers teal).
   theme: {
     accent: { light: "#3f3f46", dark: "#a1a1aa" },
     background: { light: "#fafafa", dark: "#18181b" },

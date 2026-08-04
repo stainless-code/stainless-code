@@ -7,7 +7,15 @@ export const PRODUCTS = [
     href: "https://stainless-code.com/codemap",
     github: "https://github.com/stainless-code/codemap",
     npm: "@stainless-code/codemap",
-    icon: "/icons/codemap.svg",
+    icon: "codemap",
+  },
+  {
+    name: "Persist",
+    pitch: "Any store, any storage — one middleware, no hydrate flash.",
+    href: "https://stainless-code.com/persist",
+    github: "https://github.com/stainless-code/persist",
+    npm: "@stainless-code/persist",
+    icon: "persist",
   },
   {
     name: "Layers",
@@ -16,14 +24,6 @@ export const PRODUCTS = [
     href: "https://stainless-code.com/layers",
     github: "https://github.com/stainless-code/layers",
     npm: "@stainless-code/layers",
-    icon: "/icons/layers.svg",
-  },
-  {
-    name: "Persist",
-    pitch: "Any store, any storage — one middleware, no hydrate flash.",
-    href: "https://stainless-code.com/persist",
-    github: "https://github.com/stainless-code/persist",
-    npm: "@stainless-code/persist",
-    icon: "/icons/persist.svg",
+    icon: "layers",
   },
 ] as const;

@@ -21,7 +21,8 @@
   --blume-success: #4ade80;
 }
 
-/* Logo hover: bar fills settle into accent. */
+/* Logo hover — company mark + product cards (same motion as each docs topbar).
+   Product brand fills match each docs site / prior hub card icons — not hub accent. */
 .logo-bar {
   fill: currentColor;
   transition:
@@ -29,8 +30,108 @@
     opacity 200ms ease;
 }
 
-a:has(> span > .logo-svg):hover .logo-bar {
+a:has(.logo-svg):hover .logo-bar {
   fill: var(--blume-accent);
+}
+
+/* Layers — warm stack + teal active (from layers docs). */
+.logo-layer {
+  fill: #1c1b19;
+}
+
+.logo-active {
+  fill: #0d9488;
+}
+
+.logo-active,
+.logo-top {
+  transition: transform 250ms ease;
+}
+
+a:has(.logo-svg):hover .logo-active {
+  transform: translateX(-1px);
+}
+
+a:has(.logo-svg):hover .logo-top {
+  transform: translateX(1px);
+}
+
+:root[data-theme="dark"] .logo-layer {
+  fill: #f5f0e8;
+}
+
+:root[data-theme="dark"] .logo-active {
+  fill: #2dd4bf;
+}
+
+/* Persist — zinc ring + amber settled (from persist docs). */
+.logo-ring {
+  stroke: #18181b;
+  fill: none;
+  transition:
+    stroke-dashoffset 200ms ease,
+    opacity 200ms ease;
+}
+
+.logo-settled {
+  fill: #b45309;
+  transition: transform 200ms ease;
+  transform-origin: center;
+}
+
+a:has(.logo-svg):hover .logo-ring {
+  stroke-dashoffset: 0;
+  opacity: 0.9;
+}
+
+a:has(.logo-svg):hover .logo-settled {
+  transform: scale(1.08);
+}
+
+:root[data-theme="dark"] .logo-ring {
+  stroke: #fafafa;
+}
+
+:root[data-theme="dark"] .logo-settled {
+  fill: #fbbf24;
+}
+
+/* Codemap — zinc frame + blue select (from codemap docs / prior hub icons).
+   Frame uses the static hub stroke color at full strength (not the topbar 0.55 opacity). */
+.logo-frame {
+  fill: none;
+  stroke: #71717a;
+  transition:
+    stroke-width 200ms ease,
+    stroke 200ms ease;
+}
+
+.logo-select {
+  fill: #1d4ed8;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+a:has(.logo-svg):hover .logo-frame {
+  stroke-width: 2.35;
+  stroke: #52525b;
+}
+
+a:has(.logo-svg):hover .logo-select {
+  transform: translate(-2.25px, -2.25px);
+}
+
+:root[data-theme="dark"] .logo-frame {
+  stroke: #a1a1aa;
+}
+
+:root[data-theme="dark"] a:has(.logo-svg):hover .logo-frame {
+  stroke: #d4d4d8;
+}
+
+:root[data-theme="dark"] .logo-select {
+  fill: #60a5fa;
 }
 
 /* Invert via data-theme (not prefers-color-scheme). */
