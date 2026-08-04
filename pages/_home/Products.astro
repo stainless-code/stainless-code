@@ -2,7 +2,16 @@
 import Card from "blume/components/content/Card.astro";
 import CardGroup from "blume/components/content/CardGroup.astro";
 import { contentHref } from "blume/components/content/base-href.ts";
+import codemapIcon from "./icons/codemap.svg?raw";
+import layersIcon from "./icons/layers.svg?raw";
+import persistIcon from "./icons/persist.svg?raw";
 import { PRODUCTS } from "./products.ts";
+
+const PRODUCT_ICONS = {
+  codemap: codemapIcon,
+  persist: persistIcon,
+  layers: layersIcon,
+} as const;
 ---
 
 <section aria-labelledby="libraries-heading" id="libraries">
@@ -33,7 +42,7 @@ import { PRODUCTS } from "./products.ts";
           <Card
             arrow
             href={product.href}
-            icon={product.icon}
+            icon={PRODUCT_ICONS[product.icon]}
             title={product.name}
           >
             {product.pitch}
@@ -45,7 +54,21 @@ import { PRODUCTS } from "./products.ts";
 </section>
 
 <style>
-  .product-cards :global([data-blume-card] img) {
+  /* Inline SVG Icon adds a line-box strut under the mark — kill it so spacing
+     matches the old <img> cards (mb-2.5 only, no extra leading). */
+  .product-cards :global([data-blume-card] div:has(> span > .logo-svg)) {
+    display: flex;
+    line-height: 0;
+  }
+
+  .product-cards :global([data-blume-card] span:has(> .logo-svg)) {
+    display: flex !important;
+    height: 28px !important;
+    width: 28px !important;
+  }
+
+  .product-cards :global([data-blume-card] .logo-svg) {
+    display: block;
     height: 28px;
     width: 28px;
   }
