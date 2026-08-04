@@ -1,23 +1,23 @@
 ---
 title: Products
-description: When to use Codemap, Layers, or Persist — open-source TypeScript and JavaScript libraries from Stainless Code, with docs and npm links.
+description: When to use Codemap, Persist, or Layers — open-source TypeScript and JavaScript libraries from Stainless Code, with docs and npm links.
 ---
 
-Need a structural index for agents, awaitable overlays, or hydration-aware store persistence? Start from the catalog below. Why we ship this way: [About](/about).
+Need a structural index for agents, hydration-aware store persistence, or awaitable overlays? Start from the catalog below. Why we ship this way: [About](/about).
 
 ## Libraries
 
 | Product | One-liner | Docs | npm |
 | ------- | --------- | ---- | --- |
 | **Codemap** | Local SQLite index for agents — SQL and recipes instead of scanning the tree | [docs](https://stainless-code.com/codemap) | [`@stainless-code/codemap`](https://npmx.dev/@stainless-code/codemap) |
-| **Layers** | Headless modal/dialog/drawer/popover/toast manager — open any layer from anywhere | [docs](https://stainless-code.com/layers) | [`@stainless-code/layers`](https://npmx.dev/@stainless-code/layers) |
 | **Persist** | Any store, any storage — one middleware, no hydrate flash | [docs](https://stainless-code.com/persist) | [`@stainless-code/persist`](https://npmx.dev/@stainless-code/persist) |
+| **Layers** | Headless modal/dialog/drawer/popover/toast manager — open any layer from anywhere | [docs](https://stainless-code.com/layers) | [`@stainless-code/layers`](https://npmx.dev/@stainless-code/layers) |
 
 ## When to reach for each
 
 - **Codemap** — Use when an agent (or tool) needs a local structural map of a codebase — symbols, imports, and calls — as SQL and recipes instead of scanning the tree.
-- **Layers** — Use when overlays should open from anywhere as awaitable calls on a named stack — headless core plus framework adapters, not ad-hoc dialog state.
 - **Persist** — Use when a reactive store needs hydration-aware persistence across storage backends — one middleware, no flash of empty state.
+- **Layers** — Use when overlays should open from anywhere as awaitable calls on a named stack — headless core plus framework adapters, not ad-hoc dialog state.
 
 Different problems. No forced stack — pick one package or several.
 

@@ -9,8 +9,8 @@ Product docs ship as sibling sites, including:
 | Product                                              | Docs                                                             |
 | ---------------------------------------------------- | ---------------------------------------------------------------- |
 | [Codemap](https://github.com/stainless-code/codemap) | [stainless-code.com/codemap](https://stainless-code.com/codemap) |
-| [Layers](https://github.com/stainless-code/layers)   | [stainless-code.com/layers](https://stainless-code.com/layers)   |
 | [Persist](https://github.com/stainless-code/persist) | [stainless-code.com/persist](https://stainless-code.com/persist) |
+| [Layers](https://github.com/stainless-code/layers)   | [stainless-code.com/layers](https://stainless-code.com/layers)   |
 
 ## This repo
 

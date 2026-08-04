@@ -1,7 +1,7 @@
 name: Deploy docs
 
 # Domain-root FTPS upload of dist/. Never set dangerous-clean-slate — it ignores exclude
-# and would wipe /codemap /layers /persist. Trigger: workflow_dispatch or merged PR + `docs` label.
+# and would wipe /codemap /persist /layers. Trigger: workflow_dispatch or merged PR + `docs` label.
 on:
   workflow_dispatch:
   pull_request:
