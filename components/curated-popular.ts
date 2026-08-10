@@ -1,10 +1,10 @@
 import { PRODUCTS } from "../pages/_home/products";
 
-/** Cmd+K icon names (not image paths). */
+/** Cmd+K product marks — image paths (Blume ≥1.4.0 resolves these server-side). */
 const PRODUCT_SEARCH_ICON = {
-  Codemap: "database",
-  Persist: "hard-drive",
-  Layers: "layers",
+  Codemap: "/icons/codemap.svg",
+  Persist: "/icons/persist.svg",
+  Layers: "/icons/layers.svg",
 } as const satisfies Record<(typeof PRODUCTS)[number]["name"], string>;
 
 /** Cmd+K empty-state + 404 — hub pages, then product docs URLs. */
