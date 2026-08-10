@@ -142,3 +142,16 @@ a:has(.logo-svg):hover .logo-select {
 :root:not([data-theme="dark"]) .logo-tone-light {
   filter: invert(1);
 }
+
+/* Cmd+K: cancel Blume's icon `mt-0.5` on product marks so they sit on the label midline. */
+blume-search [data-blume-search-results] span.shrink-0:has(.logo-svg) {
+  align-self: center;
+  margin-top: 0;
+  line-height: 0;
+}
+
+blume-search [data-blume-search-results] .logo-svg {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+}

@@ -1,11 +1,14 @@
+import { readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
 import { PRODUCTS } from "../pages/_home/products";
 
-/** Cmd+K product marks — image paths (Blume ≥1.4.0 resolves these server-side). */
-const PRODUCT_SEARCH_ICON = {
-  Codemap: "/icons/codemap.svg",
-  Persist: "/icons/persist.svg",
-  Layers: "/icons/layers.svg",
-} as const satisfies Record<(typeof PRODUCTS)[number]["name"], string>;
+/** Cmd+K product marks — inline card SVGs (paths become unstyled `<img>`; jiti can't `?raw`). */
+const iconsDir = join(
+  dirname(fileURLToPath(import.meta.url)),
+  "../pages/_home/icons",
+);
 
 /** Cmd+K empty-state + 404 — hub pages, then product docs URLs. */
 export const CURATED_POPULAR = [
@@ -17,6 +20,6 @@ export const CURATED_POPULAR = [
   ...PRODUCTS.map((product) => ({
     href: product.href,
     label: product.name,
-    icon: PRODUCT_SEARCH_ICON[product.name],
+    icon: readFileSync(join(iconsDir, `${product.icon}.svg`), "utf8").trim(),
   })),
 ] as const;
