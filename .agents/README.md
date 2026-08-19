@@ -1,17 +1,18 @@
 # `.agents/` — rules & skills
 
-Source of truth for AI agent configuration. Cursor consumes via symlinks in `.cursor/rules/` and `.cursor/skills/`.
+Source of truth for AI agent configuration. Cursor loads skills from `.agents/skills/` natively and rules via `.cursor/rules/*.mdc` → `.agents/rules/*.md` symlinks.
 
 ## Start here
 
-| Question                   | Read                                                                 |
-| -------------------------- | -------------------------------------------------------------------- |
-| Repo-root stub             | [`AGENTS.md`](../AGENTS.md)                                          |
-| Where files live, symlinks | [rules/agents-first-convention.md](rules/agents-first-convention.md) |
-| PRs that publish the hub   | [rules/hub-deploy.md](rules/hub-deploy.md) (`docs` label)            |
-| Hub voice                  | [`docs-voice`](skills/docs-voice/SKILL.md)                           |
-| Past corrections           | [`lessons.md`](lessons.md)                                           |
-| What exists on disk        | `ls .agents/rules` · `ls .agents/skills`                             |
+| Question                               | Read                                                                 |
+| -------------------------------------- | -------------------------------------------------------------------- |
+| Repo-root stub                         | [`AGENTS.md`](../AGENTS.md)                                          |
+| Where files live, rule `.mdc` symlinks | [rules/agents-first-convention.md](rules/agents-first-convention.md) |
+| PRs that publish the hub               | [rules/hub-deploy.md](rules/hub-deploy.md) (`docs` label)            |
+| Hub voice                              | [`docs-voice`](skills/docs-voice/SKILL.md)                           |
+| Unslop (always-on)                     | [`unslop`](skills/unslop/SKILL.md)                                   |
+| Past corrections                       | [`lessons.md`](lessons.md)                                           |
+| What exists on disk                    | `ls .agents/rules` · `ls .agents/skills`                             |
 
 ## Tier legend (summary)
 
@@ -32,6 +33,6 @@ Source of truth for AI agent configuration. Cursor consumes via symlinks in `.cu
 ```text
 .agents/
   rules/<name>.md          → .cursor/rules/<name>.mdc (symlink)
-  skills/<name>/SKILL.md   → .cursor/skills/<name> (symlink)
+  skills/<name>/SKILL.md   → Cursor reads in place
   lessons.md               → .cursor/rules/lessons.mdc (symlink)
 ```

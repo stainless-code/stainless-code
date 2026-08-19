@@ -10,6 +10,7 @@ Canonical read order: [`.agents/README.md`](.agents/README.md) (START HERE).
 | Verify each step | [`.agents/rules/verify-after-each-step.md`](.agents/rules/verify-after-each-step.md)   |
 | Authoring        | [`.agents/rules/authoring-discipline.md`](.agents/rules/authoring-discipline.md)       |
 | Hub voice        | [`.agents/skills/docs-voice/SKILL.md`](.agents/skills/docs-voice/SKILL.md)             |
+| Unslop           | [`.agents/skills/unslop/SKILL.md`](.agents/skills/unslop/SKILL.md)                     |
 | Lessons          | [`.agents/lessons.md`](.agents/lessons.md)                                             |
 
 Intent (not always-on): `docs-voice`, `minimum-diff`, `authoring-discipline`, `verify-after-each-step` — see `.agents/README.md`.
