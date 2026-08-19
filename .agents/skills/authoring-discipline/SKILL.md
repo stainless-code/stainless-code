@@ -10,4 +10,4 @@ Always-on priming: [`.agents/rules/authoring-discipline.md`](../../rules/authori
 
 Full checklists and examples: [`PROSE.md`](./PROSE.md).
 
-Related: [`docs-voice`](../docs-voice/SKILL.md).
+Related: [`docs-voice`](../docs-voice/SKILL.md), [`unslop`](../unslop/SKILL.md).
