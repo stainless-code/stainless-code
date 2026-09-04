@@ -64,7 +64,7 @@ export const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
     href: "https://www.flowbite-react.com/",
     logo: "/experience/flowbite-react.svg",
     logoTone: "color",
-    meta: "Core maintainer",
+    meta: "Core maintainer · Nov 2023 – Present",
     body: [
       "Open-source React components for Tailwind CSS in the Themesberg ecosystem. Maintainer work is public on GitHub.",
     ],
@@ -83,7 +83,7 @@ export const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
     href: "https://www.streamlyneapp.com/",
     logo: "/experience/streamlyne.png",
     logoTone: "color",
-    meta: "Product engineering · React Native",
+    meta: "Product engineering · React Native · May 2025 – Feb 2026 (~9 months)",
     body: [
       "Private family organization product — mobile application in React Native.",
     ],
@@ -94,7 +94,7 @@ export const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
     href: "https://paybilt.com/",
     logo: "/experience/paybilt.png",
     logoTone: "dark",
-    meta: "Product engineering",
+    meta: "Product engineering · Feb 2025 – Present",
     body: ["Payments / fintech product work."],
   },
   {
