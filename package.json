@@ -22,7 +22,7 @@
     "validate": "blume validate"
   },
   "dependencies": {
-    "blume": "1.6.0"
+    "blume": "1.6.3"
   },
   "devDependencies": {
     "@types/node": "^26.2.0",
