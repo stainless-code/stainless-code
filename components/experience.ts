@@ -94,7 +94,7 @@ export const EXPERIENCE_ENTRIES: ExperienceEntry[] = [
     href: "https://paybilt.com/",
     logo: "/experience/paybilt.png",
     logoTone: "dark",
-    meta: "Product engineering · Feb 2025 – Present",
+    meta: "Product engineering · Feb 2025 – Sep 2026 (~1 year 7 months)",
     body: ["Payments / fintech product work."],
   },
   {
