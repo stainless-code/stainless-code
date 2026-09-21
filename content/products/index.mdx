@@ -1,9 +1,9 @@
 ---
 title: Products
-description: When to use Codemap, Persist, or Layers — open-source TypeScript and JavaScript libraries from Stainless Code, with docs and npm links.
+description: When to use Codemap, Persist, Layers, or Lossless — open-source TypeScript and JavaScript libraries from Stainless Code, with docs and npm links.
 ---
 
-Need a structural index for agents, hydration-aware store persistence, or awaitable overlays? Start from the catalog below. Why we ship this way: [About](/about).
+Need a structural index for agents, hydration-aware store persistence, awaitable overlays, or lossless context management? Start from the catalog below. Why we ship this way: [About](/about).
 
 ## Libraries
 
@@ -12,12 +12,14 @@ Need a structural index for agents, hydration-aware store persistence, or awaita
 | **Codemap** | Local SQLite index for agents — SQL and recipes instead of scanning the tree | [docs](https://stainless-code.com/codemap) | [`@stainless-code/codemap`](https://npmx.dev/@stainless-code/codemap) |
 | **Persist** | Any store, any storage — one middleware, no hydrate flash | [docs](https://stainless-code.com/persist) | [`@stainless-code/persist`](https://npmx.dev/@stainless-code/persist) |
 | **Layers** | Headless modal/dialog/drawer/popover/toast manager — open any layer from anywhere | [docs](https://stainless-code.com/layers) | [`@stainless-code/layers`](https://npmx.dev/@stainless-code/layers) |
+| **Lossless** | Lossless context management for coding agents — aged history becomes summary pointers, every message stays verbatim and searchable | [docs](https://stainless-code.com/lossless) | `pi-lossless` · `lossless-core` |
 
 ## When to reach for each
 
 - **Codemap** — Use when an agent (or tool) needs a local structural map of a codebase — symbols, imports, and calls — as SQL and recipes instead of scanning the tree.
 - **Persist** — Use when a reactive store needs hydration-aware persistence across storage backends — one middleware, no flash of empty state.
 - **Layers** — Use when overlays should open from anywhere as awaitable calls on a named stack — headless core plus framework adapters, not ad-hoc dialog state.
+- **Lossless** — Use when agent sessions outgrow the context window — aged history becomes summary pointers while every message stays verbatim and searchable.
 
 Different problems. No forced stack — pick one package or several.
 

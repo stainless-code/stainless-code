@@ -8,12 +8,12 @@ export const COMPANY_FAQS = [
   {
     question: "Where do product docs live?",
     answer:
-      "Each library has its own docs site under stainless-code.com (for example /codemap, /persist, /layers). This hub is the company index and pitch — not a second copy of those guides.",
+      "Each library has its own docs site under stainless-code.com (for example /codemap, /persist, /layers, /lossless). This hub is the company index and pitch — not a second copy of those guides.",
   },
   {
-    question: "How do Codemap, Persist, and Layers differ?",
+    question: "How do Codemap, Persist, Layers, and Lossless differ?",
     answer:
-      "Codemap indexes a local codebase for agents (SQL and recipes instead of scanning the tree). Persist adds hydration-aware persistence to reactive stores. Layers is a headless overlay manager — open any layer from anywhere. Different problems; no forced stack.",
+      "Codemap indexes a local codebase for agents (SQL and recipes instead of scanning the tree). Persist adds hydration-aware persistence to reactive stores. Layers is a headless overlay manager — open any layer from anywhere. Lossless manages context for coding agents — aged history becomes summary pointers while every message stays verbatim and searchable. Different problems; no forced stack.",
   },
   {
     question: "Are the libraries open source?",

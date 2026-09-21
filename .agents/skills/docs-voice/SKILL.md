@@ -5,7 +5,7 @@ description: Voice, tone, and format for the Stainless Code company hub. Use whe
 
 # Docs voice — Stainless Code hub
 
-Mixture of Codemap / Persist / Layers docs-voice, thinned for a **company index** (not a product docs tree). Keep landing, About, Products, and footer reading like one voice.
+Mixture of Codemap / Persist / Layers / Lossless docs-voice, thinned for a **company index** (not a product docs tree). Keep landing, About, Products, and footer reading like one voice.
 
 Landing shape borrows clarity from peer org hubs (category claim → why → browse → CTA) without their hype, stats, or partner walls.
 
@@ -50,6 +50,7 @@ Senior-dev to senior-dev: concrete, dry, honest about scope. Pragmatic marketing
   - **Codemap:** "Local SQLite index for agents — SQL and recipes instead of scanning the tree." ([llms.txt](https://stainless-code.com/codemap/llms.txt) full blurb is longer)
   - **Persist:** "Any store, any storage — one middleware, no hydrate flash."
   - **Layers:** "Headless modal/dialog/drawer/popover/toast manager — open any layer from anywhere." ([llms.txt](https://stainless-code.com/layers/llms.txt))
+  - **Lossless:** "Lossless context management for coding agents — aged history becomes summary pointers, every message stays verbatim and searchable." ([llms.txt](https://stainless-code.com/lossless/llms.txt))
 
 ## Verify
 
