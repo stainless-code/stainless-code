@@ -134,6 +134,44 @@ a:has(.logo-svg):hover .logo-select {
   fill: #60a5fa;
 }
 
+/* Lossless — zinc brackets + violet node (from lossless docs). */
+.logo-tick-out,
+.logo-open,
+.logo-close {
+  transition: transform 220ms ease;
+}
+
+.logo-node {
+  fill: #6d28d9;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+a:has(.logo-svg):hover .logo-tick-out:nth-of-type(1) {
+  transform: translateX(-2.2px);
+}
+
+a:has(.logo-svg):hover .logo-tick-out:nth-of-type(2) {
+  transform: translateX(2.2px);
+}
+
+a:has(.logo-svg):hover .logo-open {
+  transform: translateX(-1.1px);
+}
+
+a:has(.logo-svg):hover .logo-close {
+  transform: translateX(1.1px);
+}
+
+a:has(.logo-svg):hover .logo-node {
+  transform: scale(1.16);
+}
+
+:root[data-theme="dark"] .logo-node {
+  fill: #c4b5fd;
+}
+
 /* Invert via data-theme (not prefers-color-scheme). */
 :root[data-theme="dark"] .logo-tone-dark {
   filter: invert(1);

@@ -4,6 +4,7 @@ import CardGroup from "blume/components/content/CardGroup.astro";
 import { contentHref } from "blume/components/content/base-href.ts";
 import codemapIcon from "./icons/codemap.svg?raw";
 import layersIcon from "./icons/layers.svg?raw";
+import losslessIcon from "./icons/lossless.svg?raw";
 import persistIcon from "./icons/persist.svg?raw";
 import { PRODUCTS } from "./products.ts";
 
@@ -11,6 +12,7 @@ const PRODUCT_ICONS = {
   codemap: codemapIcon,
   persist: persistIcon,
   layers: layersIcon,
+  lossless: losslessIcon,
 } as const;
 ---
 
@@ -36,7 +38,7 @@ const PRODUCT_ICONS = {
   </div>
 
   <div class="product-cards mt-10">
-    <CardGroup cols={3}>
+    <CardGroup cols={4}>
       {
         PRODUCTS.map((product) => (
           <Card

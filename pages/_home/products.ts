@@ -26,4 +26,13 @@ export const PRODUCTS = [
     npm: "@stainless-code/layers",
     icon: "layers",
   },
+  {
+    name: "Lossless",
+    pitch:
+      "Lossless context management for coding agents — aged history becomes summary pointers, every message stays verbatim and searchable.",
+    href: "https://stainless-code.com/lossless",
+    github: "https://github.com/stainless-code/lossless",
+    npm: "pi-lossless",
+    icon: "lossless",
+  },
 ] as const;
