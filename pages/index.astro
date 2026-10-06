@@ -1,5 +1,5 @@
 ---
-import PageLayout from "blume/components/layout/PageLayout.astro";
+import PageLayout from "../components/blume/PageLayout.astro";
 import data from "blume:data";
 import Footer from "../components/blume/Footer.astro";
 import FinalCta from "./_home/FinalCta.astro";
@@ -27,10 +27,8 @@ const pageTitle = `${config.title} — Open-source tooling for JS/TS and AI agen
   themeMode={config.theme.mode}
   x={config.x}
 >
-  <div
-    class="mx-auto grid max-w-[1400px] gap-16 px-6 py-20 sm:py-24 lg:gap-24 xl:gap-32"
-  >
-    <Hero />
+  <Hero />
+  <div class="grid gap-16 py-20 sm:py-24 lg:gap-24 xl:gap-32">
     <Principles />
     <Products />
   </div>
@@ -42,3 +40,9 @@ const pageTitle = `${config.title} — Open-source tooling for JS/TS and AI agen
     ui={data.ui}
   />
 </PageLayout>
+
+<style>
+  :global(header[data-blume-header]) {
+    padding-inline: max(1.5rem, calc((100vw - 72.5rem) / 2));
+  }
+</style>

@@ -1,5 +1,8 @@
 import { defineConfig } from "blume";
+import { orama } from "blume/search";
+import { filesystem } from "blume/sources";
 
+import { COMPANY, MAINTAINER } from "./components/company";
 import { CURATED_POPULAR } from "./components/curated-popular";
 
 const title = "Stainless Code";
@@ -23,28 +26,37 @@ export default defineConfig({
     dir: ".",
   },
 
-  lastModified: true,
+  lastModified: "git",
 
   content: {
-    sources: [{ type: "filesystem", root: "content" }],
+    sources: [filesystem({ root: "content" })],
   },
 
   navigation: {
     tabs: [
-      { label: "Products", path: "/products", icon: "package" },
-      { label: "About", path: "/about", icon: "info" },
-      { label: "Team", path: "/team", icon: "users" },
-      { label: "Experience", path: "/experience", icon: "briefcase" },
-      { label: "Contact", path: "/contact", icon: "mail" },
-    ],
-    featured: [
-      {
-        label: "GitHub",
-        href: "https://github.com/stainless-code",
-        icon: "github",
-      },
+      { label: "Products", path: "/products" },
+      { label: "About", path: "/about" },
+      { label: "Team", path: "/team" },
+      { label: "Experience", path: "/experience" },
+      { label: "Contact", path: "/contact" },
     ],
     sidebar: { display: "flat" },
+  },
+
+  footer: {
+    links: [
+      { label: "About", href: "/about" },
+      { label: "Products", href: "/products" },
+      { label: "Team", href: "/team" },
+      { label: "Experience", href: "/experience" },
+      { label: "Contact", href: "/contact" },
+    ],
+    socials: {
+      github: COMPANY.orgUrl,
+      linkedin: MAINTAINER.linkedin,
+      x: MAINTAINER.x,
+      bluesky: MAINTAINER.bluesky,
+    },
   },
 
   // Zinc shell + steel accent (not Codemap blue / Persist amber / Layers teal).
@@ -61,7 +73,7 @@ export default defineConfig({
   },
 
   search: {
-    provider: "orama",
+    provider: orama(),
     popular: CURATED_POPULAR.map(({ href, label, icon }) => ({
       href,
       label,
@@ -70,14 +82,18 @@ export default defineConfig({
   },
 
   markdown: {
-    code: { icons: true },
-    codeBlocks: { theme: { light: "github-light", dark: "github-dark" } },
+    externalLinks: true,
+    code: {
+      icons: true,
+      theme: { light: "github-light", dark: "github-dark" },
+    },
   },
 
   toc: { minHeadingLevel: 2, maxHeadingLevel: 3 },
 
-  ai: {
+  agents: {
     llmsTxt: true,
+    agentReadability: true,
   },
 
   seo: {
@@ -88,11 +104,9 @@ export default defineConfig({
     sitemap: true,
     robots: true,
     structuredData: true,
-    agentReadability: true,
   },
 
   deployment: {
-    output: "static",
     site: "https://stainless-code.com",
     base: "/",
   },

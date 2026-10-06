@@ -193,3 +193,7 @@ blume-search [data-blume-search-results] .logo-svg {
   width: 1rem;
   height: 1rem;
 }
+
+.landing-gutter {
+  padding-inline: max(1.5rem, calc((100vw - 72.5rem) / 2));
+}
