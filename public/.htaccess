@@ -56,8 +56,10 @@ ErrorDocument 404 /404.html
 </IfModule>
 <IfModule mod_headers.c>
   Header merge Vary Accept
-  # expr covers REDIRECT_ rename after internal rewrites (e.g. /index.html -> /index.md).
-  Header always set Link "</.well-known/api-catalog>; rel=\"api-catalog\"; type=\"application/linkset+json\", </.well-known/ai-catalog.json>; rel=\"ai-catalog\"; type=\"application/ai-catalog+json\", </openapi.json>; rel=\"service-desc\"; type=\"application/json\", </agent-readability.json>; rel=\"describedby\"; type=\"application/json\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\", </index.md>; rel=\"alternate\"; type=\"text/markdown\"" "expr=%{ENV:IS_HOMEPAGE} || %{ENV:REDIRECT_IS_HOMEPAGE}"
+  Header always set Link "</.well-known/api-catalog>; rel=\"api-catalog\"; type=\"application/linkset+json\", </.well-known/ai-catalog.json>; rel=\"ai-catalog\"; type=\"application/ai-catalog+json\", </openapi.json>; rel=\"service-desc\"; type=\"application/json\", </agent-readability.json>; rel=\"describedby\"; type=\"application/json\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\", </index.md>; rel=\"alternate\"; type=\"text/markdown\"" env=IS_HOMEPAGE
+  # Internal rewrites rename request env vars with a REDIRECT_ prefix.
+  Header always set Link "</.well-known/api-catalog>; rel=\"api-catalog\"; type=\"application/linkset+json\", </.well-known/ai-catalog.json>; rel=\"ai-catalog\"; type=\"application/ai-catalog+json\", </openapi.json>; rel=\"service-desc\"; type=\"application/json\", </agent-readability.json>; rel=\"describedby\"; type=\"application/json\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\", </index.md>; rel=\"alternate\"; type=\"text/markdown\"" env=REDIRECT_IS_HOMEPAGE
+  # Internal rewrites rename request env vars with a REDIRECT_ prefix.
 </IfModule>
 
 # Extensionless file needs explicit type (else text/plain fails the scan).
