@@ -77,5 +77,5 @@ jobs:
             lossless/**
             persist
             persist/**
-            .well-known
-            .well-known/**
+            # NOTE: .well-known IS uploaded (api-catalog, ai-catalog/ard, agent-skills).
+            # FTP action has no clean-slate, so this merges — never deletes remote-only files.
