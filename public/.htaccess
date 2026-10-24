@@ -37,3 +37,54 @@ ErrorDocument 404 /404.html
 <FilesMatch "^llms(-full|-small)?\.txt$">
   Header set X-Robots-Tag "noindex"
 </FilesMatch>
+
+# Agent discovery (isitagentready) — Apache port of dist/_headers + dist/vercel.json.
+# Apache ignores those files; this is what actually ships headers on Hostico.
+<IfModule mod_mime.c>
+  AddType application/json .json
+  AddType application/gzip .tar.gz
+</IfModule>
+
+# Homepage Link header (RFC 8288 / RFC 9727 s3). Minimal form; keep in sync with dist/_headers.
+<IfModule mod_setenvif.c>
+  SetEnvIf Request_URI "^/$" IS_HOMEPAGE
+  SetEnvIf Request_URI "^/index\.html$" IS_HOMEPAGE
+</IfModule>
+<IfModule mod_headers.c>
+  Header merge Vary Accept
+  Header always set Link "</.well-known/api-catalog>; rel=\"api-catalog\"; type=\"application/linkset+json\", </.well-known/ai-catalog.json>; rel=\"ai-catalog\"; type=\"application/ai-catalog+json\", </openapi.json>; rel=\"service-desc\"; type=\"application/json\", </agent-readability.json>; rel=\"describedby\"; type=\"application/json\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\", </index.md>; rel=\"alternate\"; type=\"text/markdown\"" env=IS_HOMEPAGE
+</IfModule>
+
+# Extensionless file needs explicit type (else text/plain fails the scan).
+<Files "api-catalog">
+  ForceType 'application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"'
+</Files>
+
+<IfModule mod_headers.c>
+  <FilesMatch "(^ai-catalog\.json$|^ard\.json$|^api-catalog$|index\.json$)">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+</IfModule>
+
+# Pragmatic Accept: text/markdown (static-first, not strict RFC).
+# Layout: /about.md sibling to /about/index.html; /index.md for home.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteCond %{REQUEST_URI} \.(css|js|mjs|map|png|jpe?g|webp|gif|svg|avif|ico|woff2?|ttf|otf|eot|xml|txt|json|pdf|mp4|webm|mp3|wav|ogg|zip)$ [NC]
+RewriteRule ^ - [L]
+RewriteCond %{REQUEST_URI} \.mdx?$ [NC]
+RewriteRule ^ - [L]
+
+# / -> /index.md
+RewriteCond %{HTTP:Accept} text/markdown [NC]
+RewriteCond %{HTTP:Accept} !text/markdown\s*;\s*q\s*=\s*0(\.0*)?(\s*[;,]|\s*$) [NC]
+RewriteRule ^$ /index.md [L,T=text/markdown]
+
+# /about[,/] -> /about.md (twin must exist)
+RewriteCond %{HTTP:Accept} text/markdown [NC]
+RewriteCond %{HTTP:Accept} !text/markdown\s*;\s*q\s*=\s*0(\.0*)?(\s*[;,]|\s*$) [NC]
+RewriteCond %{REQUEST_FILENAME} !\.md$ [NC]
+RewriteCond %{DOCUMENT_ROOT}/$1.md -f
+RewriteRule ^(.+?)/?$ /$1.md [L,T=text/markdown]
+</IfModule>

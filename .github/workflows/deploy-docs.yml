@@ -77,5 +77,4 @@ jobs:
             lossless/**
             persist
             persist/**
-            .well-known
-            .well-known/**
+            # NOTE: .well-known IS uploaded (merge only; remote-only files kept).

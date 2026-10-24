@@ -18,7 +18,8 @@ Without `docs`: merge does **not** deploy. Use Actions → **Deploy docs** → `
 ## FTP constraints (do not violate)
 
 - Account root = `https://stainless-code.com/` (secrets: `FTP_HOST`, `FTP_USERNAME`, `FTP_PASSWORD`).
-- Workflow **exclude** keeps `codemap/`, `layers/`, `lossless/`, `persist/`, `.well-known/` (not uploaded, not deleted).
+- Workflow **exclude** keeps `codemap/`, `layers/`, `lossless/`, `persist/` (not uploaded, not deleted).
+- `.well-known/` **is** uploaded (merge only, remote-only files kept).
 - **Never** set `dangerous-clean-slate` — it ignores exclude and wipes product docs.
 
 Source of truth: [`.github/workflows/deploy-docs.yml`](../../.github/workflows/deploy-docs.yml).
