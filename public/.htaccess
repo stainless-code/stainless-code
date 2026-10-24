@@ -42,12 +42,8 @@ ErrorDocument 404 /404.html
 # Apache ignores those files; this is what actually ships headers on Hostico.
 <IfModule mod_mime.c>
   AddType application/json .json
+  AddType application/gzip .tar.gz
 </IfModule>
-
-# Compound extension needs a filename match — AddType splits on dots.
-<FilesMatch "\.tar\.gz$">
-  ForceType application/gzip
-</FilesMatch>
 
 # Homepage Link header (RFC 8288 / RFC 9727 s3). Minimal form; keep in sync with dist/_headers.
 <IfModule mod_setenvif.c>
@@ -56,8 +52,7 @@ ErrorDocument 404 /404.html
 </IfModule>
 <IfModule mod_headers.c>
   Header merge Vary Accept
-  # expr covers REDIRECT_ rename after internal rewrites (e.g. /index.html -> /index.md).
-  Header always set Link "</.well-known/api-catalog>; rel=\"api-catalog\"; type=\"application/linkset+json\", </.well-known/ai-catalog.json>; rel=\"ai-catalog\"; type=\"application/ai-catalog+json\", </openapi.json>; rel=\"service-desc\"; type=\"application/json\", </agent-readability.json>; rel=\"describedby\"; type=\"application/json\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\", </index.md>; rel=\"alternate\"; type=\"text/markdown\"" "expr=%{ENV:IS_HOMEPAGE} || %{ENV:REDIRECT_IS_HOMEPAGE}"
+  Header always set Link "</.well-known/api-catalog>; rel=\"api-catalog\"; type=\"application/linkset+json\", </.well-known/ai-catalog.json>; rel=\"ai-catalog\"; type=\"application/ai-catalog+json\", </openapi.json>; rel=\"service-desc\"; type=\"application/json\", </agent-readability.json>; rel=\"describedby\"; type=\"application/json\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\", </index.md>; rel=\"alternate\"; type=\"text/markdown\"" env=IS_HOMEPAGE
 </IfModule>
 
 # Extensionless file needs explicit type (else text/plain fails the scan).
@@ -66,7 +61,7 @@ ErrorDocument 404 /404.html
 </Files>
 
 <IfModule mod_headers.c>
-  <FilesMatch "(^ai-catalog\.json$|^ard\.json$|^api-catalog$|^agent-readability\.json$|index\.json$)">
+  <FilesMatch "(^ai-catalog\.json$|^ard\.json$|^api-catalog$|index\.json$)">
     Header set Access-Control-Allow-Origin "*"
   </FilesMatch>
 </IfModule>
@@ -83,17 +78,12 @@ RewriteRule ^ - [L]
 
 # / -> /index.md
 RewriteCond %{HTTP:Accept} text/markdown [NC]
-RewriteCond %{HTTP:Accept} !text/markdown(?:\s*;\s*(?!q\s*=)[^;,]+)*\s*;\s*q\s*=\s*0(\.0*)?(\s*[;,]|\s*$) [NC]
+RewriteCond %{HTTP:Accept} !text/markdown\s*;\s*q\s*=\s*0(\.0*)?(\s*[;,]|\s*$) [NC]
 RewriteRule ^$ /index.md [L,T=text/markdown]
-
-# /index.html -> /index.md (same representation as /)
-RewriteCond %{HTTP:Accept} text/markdown [NC]
-RewriteCond %{HTTP:Accept} !text/markdown(?:\s*;\s*(?!q\s*=)[^;,]+)*\s*;\s*q\s*=\s*0(\.0*)?(\s*[;,]|\s*$) [NC]
-RewriteRule ^index\.html$ /index.md [L,T=text/markdown]
 
 # /about[,/] -> /about.md (twin must exist)
 RewriteCond %{HTTP:Accept} text/markdown [NC]
-RewriteCond %{HTTP:Accept} !text/markdown(?:\s*;\s*(?!q\s*=)[^;,]+)*\s*;\s*q\s*=\s*0(\.0*)?(\s*[;,]|\s*$) [NC]
+RewriteCond %{HTTP:Accept} !text/markdown\s*;\s*q\s*=\s*0(\.0*)?(\s*[;,]|\s*$) [NC]
 RewriteCond %{REQUEST_FILENAME} !\.md$ [NC]
 RewriteCond %{DOCUMENT_ROOT}/$1.md -f
 RewriteRule ^(.+?)/?$ /$1.md [L,T=text/markdown]
